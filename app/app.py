@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import sqlite3
 from datetime import datetime
+from zoneinfo import ZoneInfo
 import matplotlib.pyplot as plt
 
 import sys
@@ -181,7 +182,7 @@ if st.button("Evaluar paciente"):
         presion, saturacion,
         int(pred),
         float(confianza),
-        datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        datetime.now(ZoneInfo("America/Bogota")).strftime("%Y-%m-%d %H:%M:%S")
     ))
     conn.commit()
 
